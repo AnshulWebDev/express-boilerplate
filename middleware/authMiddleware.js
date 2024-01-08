@@ -1,8 +1,8 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 require("dotenv").config();
 
 //auth
-exports.auth = async (req, res, next) => {
+export const auth = async (req, res, next) => {
   try {
     //extract token
     const token =

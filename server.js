@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 require("dotenv").config();
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
-const database = require("./config/database");
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import database from "./config/database";
 
 const PORT = process.env.PORT || 7000;
 const app = express();
