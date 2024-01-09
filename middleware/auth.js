@@ -7,7 +7,8 @@ export const auth = async (req, res, next) => {
   try {
     //extract token
     const token =
-      req.cookies.token || req.header("Authorization").replace("Bearer ", "");
+      req.cookies?.token.value ||
+      req.header("Authorization").replace("Bearer ", "");
 
     if (!token) {
       Response(res, false, "Token Is missing", 401);
