@@ -1,9 +1,8 @@
-import express from "express";
-import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
-import cors from "cors";
-import { connectDB } from "./config/database";
-dotenv.config();
+const express = require("express");
+require("dotenv").config();
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const { connectDB } = require("./config/database");
 const PORT = process.env.PORT || 7000;
 const app = express();
 app.listen(PORT, () => {
@@ -14,13 +13,17 @@ app.use(cookieParser());
 connectDB();
 app.use(
   cors({
-    origin: "http://localhost:6000",
+    origin: process.env.FRONTENDURL,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    allowedHeaders: "Content-Type,Authorization",
   })
 );
 
-//routes Import
+//routes import
 
 //middleware
 
-export default app;
+module.exports = app;

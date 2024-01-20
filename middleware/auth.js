@@ -1,9 +1,8 @@
-import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-import Response from "../utils/Response";
-dotenv.config();
+const jwt =require("jsonwebtoken") ;
+require( "dotenv").config();
+const Response =require("../utils/Response") ;
 //auth
-export const auth = async (req, res, next) => {
+exports.auth = async (req, res, next) => {
   try {
     //extract token
     const token =
